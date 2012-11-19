@@ -1,7 +1,7 @@
 #! /bin/bash
 
 echo "setup drush"
-alias drush="~/drush/drush"
+alias drush="$HOME/drush/drush"
 
 echo "Begin Part 1 - Update core database tables."
 echo
@@ -50,6 +50,7 @@ mv ../../../sites /tmp/
 
 echo "Remove drupal 6"
 cd  ../../../../ 
+chomd 777 $path/ -R
 rm $path/* -Rf
 echo
 
@@ -59,7 +60,7 @@ tar xvf drupal-7.17.tar.gz
 cp drupal-7.17/* $path/ -rf
 chmod 777 $path/ -R
 echo "Remove sites"	
-rm $path/sites/* -Rf
+rm $path/sites -Rf
 chmod 777 /tmp/sites -R
 mv /tmp/sites $path/
 
