@@ -1,5 +1,5 @@
 #! /bin/bash
-
+DRUSH="$HOME/drush/drush"
 echo "Moving sites/all/modules back to sites/all/migrate."
 # sudo ../all/modules ../all/migrate
 mv ../all/modules ../all/migrate
@@ -12,7 +12,7 @@ echo
 
 echo "Clearing all drupal cache."
 echo
-drush cc all
+$DRUSH cc all
 echo
 
 echo "[Part 4 Done]"

@@ -1,13 +1,13 @@
 #! /bin/bash
 
 # Prep work
-
+DRUSH="$HOME/drush/drush"
 TODAY=`date "+%Y%m%d"`-`date +%H%M%S`
 echo "FYI Today is $TODAY"
 echo
 
 echo "Saving a db snapshot called site-db-d6.sql."
-drush sql-dump --skip-tables-key=common > site-db-d6.sql
+$DRUSH sql-dump --skip-tables-key=common > site-db-d6.sql
 echo
 
 echo "Change into sites/default directory."
@@ -25,7 +25,7 @@ echo
 echo
 
 echo "Saving a db snapshot called site-db-part1.sql."
-drush sql-dump --skip-tables-key=common > site-db-part1.sql
+$DRUSH sql-dump --skip-tables-key=common > site-db-part1.sql
 echo
 
 
@@ -39,7 +39,7 @@ echo
 echo
 
 echo "Saving a db snapshot called site-db-part2.sql."
-drush sql-dump --skip-tables-key=common > site-db-part2.sql
+$DRUSH sql-dump --skip-tables-key=common > site-db-part2.sql
 echo
 
 
@@ -54,7 +54,7 @@ echo
 
 echo "Saving a db snapshot called site-db-part3.sql."
 echo
-drush sql-dump --skip-tables-key=common > site-db-part3.sql
+$DRUSH sql-dump --skip-tables-key=common > site-db-part3.sql
 echo
 
 
@@ -82,7 +82,7 @@ echo
 
 echo "Saving a db snapshot called site-db-part5.sql."
 echo
-drush sql-dump --skip-tables-key=common > site-db-part5.sql
+$DRUSH sql-dump --skip-tables-key=common > site-db-part5.sql
 echo
 
 
@@ -97,7 +97,7 @@ echo
 
 echo "Saving a db snapshot called site-db-part6.sql."
 echo
-drush sql-dump --skip-tables-key=common > site-db-part6.sql
+$DRUSH sql-dump --skip-tables-key=common > site-db-part6.sql
 echo
 
 
