@@ -1,5 +1,8 @@
 #! /bin/bash
 
+echo "setup drush"
+alias drush="~/drush/drush"
+
 echo "Begin Part 1 - Update core database tables."
 echo
 
@@ -43,11 +46,11 @@ echo "Switch to the drupal7 branch."
 #sudo su gituser -c "git checkout drupal7"
 path="$(basename $(dirname $(dirname $(dirname $PWD))))";
 echo "Dir sites to tmp"
-mv ../../../sites /tmp/ -v
+mv ../../../sites /tmp/ 
 
 echo "Remove drupal 6"
-cd  ../../../../ -v
-rm $path/* -Rvf
+cd  ../../../../ 
+rm $path/* -Rf
 echo
 
 echo "dowload drupal 7"
@@ -57,6 +60,7 @@ cp drupal-7.17/* $path/ -rf
 chmod 777 $path/ -R
 echo "Remove sites"	
 rm $path/sites/* -Rf
+chmod 777 /tmp/sites -R
 mv /tmp/sites $path/
 
 echo "Go to dir current script"
