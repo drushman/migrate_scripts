@@ -1,6 +1,6 @@
 #! /bin/bash
 DRUPAL="$HOME/duy.v3k.net"
-path = "duy.v3k.net"
+PATH="duy.v3k.net"
 echo "setup $DRUSH"
 DRUSH="$HOME/drush/drush"
 
@@ -45,26 +45,30 @@ echo "Switch to the drupal7 branch."
 #path="$(basename $(dirname $DRUPAL))";
 echo "Dir sites to tmp"
 mv $DRUPAL/sites /tmp/ 
+echo "$PATH"
 
+#exit;
 echo "Remove drupal 6"
-cd   $HOME 
-chomd 777 $path/ -R
-rm $path/* -Rf
+echo "$HOME" 
+cd $HOME 
+pwd
+chmod 777 $DRUPAL/ -R
+rm $DRUPAL/* -Rf
 echo
 
 echo "dowload drupal 7"
 wget http://ftp.drupal.org/files/projects/drupal-7.17.tar.gz 
 tar xvf drupal-7.17.tar.gz
-cp drupal-7.17/* $path/ -rf
-chmod 777 $path/ -R
+cp drupal-7.17/* $DRUPAL/ -rf
+chmod 777 $DRUPAL/ -R
 echo "Remove sites"	
-rm $path/sites -Rf
-ls -la $path
+rm $DUPAL/sites -Rf
+ls -la $DRUPAL
 chmod 777 /tmp/sites -R
-mv /tmp/sites $path/
+mv /tmp/sites $DRUPAL/
 
 echo "Go to dir current script"
-cd $path/sites/all/migrate_scripts
+#cd /sites/all/migrate_scripts
 echo
 
 
