@@ -25,7 +25,24 @@ echo
 
 echo "Switch to the drupal7 branch."
 #sudo su gituser -c "git checkout drupal7"
-drush pm-updatecode
+path="$(basename $(dirname $(dirname $(dirname $PWD))))";
+echo "Dir sites to tmp"
+mv ../../../sites /tmp/ -v
+
+echo "Remove drupal 6"
+cd  ../../../../ -v
+rm $path/* -Rvf
+echo
+
+echo "dowload drupal 7"
+drush -y dl drupal-7.17 --drupal-project-rename=$path -v
+echo "Remove sites"	
+rm $path/sites/* -Rvf
+mv /tmp/sites $path/
+
+
+
+
 echo
 
 echo "Use sites/default/settings-d7.php for d7 settings.php."
