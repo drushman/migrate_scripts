@@ -27,18 +27,23 @@ echo "Switch to the drupal7 branch."
 #sudo su gituser -c "git checkout drupal7"
 path="$(basename $(dirname $(dirname $(dirname $PWD))))";
 echo "Dir sites to tmp"
-mv ../../sites /tmp/ -v
+mv ../../../sites /tmp/ -v
 
 echo "Remove drupal 6"
-cd  ../../../ -v
+cd  ../../../../ -v
 rm $path/* -Rvf
 echo
 
 echo "dowload drupal 7"
-drush -y dl drupal-7.17 --drupal-project-rename=$path -v
+wget http://ftp.drupal.org/files/projects/drupal-7.17.tar.gz 
+tar xvf drupal-7.17.tar.gz
+cp drupal-7.17/* $path/ -rvf
 echo "Remove sites"	
 rm $path/sites/* -Rvf
 mv /tmp/sites $path/
+
+echo "Go to dir current script"
+cd $path/sites/all/migrate_scripts
 
 
 
