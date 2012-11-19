@@ -61,6 +61,7 @@ cp drupal-7.17/* $path/ -rf
 chmod 777 $path/ -R
 echo "Remove sites"	
 rm $path/sites -Rf
+ls -la $path
 chmod 777 /tmp/sites -R
 mv /tmp/sites $path/
 

@@ -1,5 +1,5 @@
 #! /bin/bash
-
+DRUSH="$HOME/drush/drush"
 echo "This MUST be run while the active directory is /sites/default"
 echo
 
@@ -8,12 +8,12 @@ echo
 
 echo "Enabling the nodequeue module first."
 echo
-drush en -y nodequeue
+$DRUSH en -y nodequeue
 echo
 
 echo "Running update.php for all non-core modules."
 echo
-drush updb -y
+$DRUSH updb -y
 echo
 
 echo "[Done with part 5.]"

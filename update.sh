@@ -7,7 +7,7 @@ echo "FYI Today is $TODAY"
 echo
 
 echo "Saving a db snapshot called site-db-d6.sql."
-$DRUSH sql-dump --skip-tables-key=common > site-db-d6.sql
+#$DRUSH sql-dump --skip-tables-key=common > site-db-d6.sql
 echo
 
 echo "Change into sites/default directory."
@@ -25,7 +25,7 @@ echo
 echo
 
 echo "Saving a db snapshot called site-db-part1.sql."
-$DRUSH sql-dump --skip-tables-key=common > site-db-part1.sql
+#$DRUSH sql-dump --skip-tables-key=common > site-db-part1.sql
 echo
 
 
@@ -39,7 +39,7 @@ echo
 echo
 
 echo "Saving a db snapshot called site-db-part2.sql."
-$DRUSH sql-dump --skip-tables-key=common > site-db-part2.sql
+#$DRUSH sql-dump --skip-tables-key=common > site-db-part2.sql
 echo
 
 
@@ -54,7 +54,7 @@ echo
 
 echo "Saving a db snapshot called site-db-part3.sql."
 echo
-$DRUSH sql-dump --skip-tables-key=common > site-db-part3.sql
+#$DRUSH sql-dump --skip-tables-key=common > site-db-part3.sql
 echo
 
 
@@ -82,7 +82,7 @@ echo
 
 echo "Saving a db snapshot called site-db-part5.sql."
 echo
-$DRUSH sql-dump --skip-tables-key=common > site-db-part5.sql
+#$DRUSH sql-dump --skip-tables-key=common > site-db-part5.sql
 echo
 
 
@@ -92,12 +92,12 @@ echo
 
 echo "Running part6.sh"
 echo
-../all/migrate_scripts/part6.sh
+#../all/migrate_scripts/part6.sh
 echo
 
 echo "Saving a db snapshot called site-db-part6.sql."
 echo
-$DRUSH sql-dump --skip-tables-key=common > site-db-part6.sql
+#$DRUSH sql-dump --skip-tables-key=common > site-db-part6.sql
 echo
 
 
