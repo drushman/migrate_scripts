@@ -1,5 +1,6 @@
 #! /bin/bash
-
+DRUPAL="$HOME/duy.v3k.net"
+path = "duy.v3k.net"
 echo "setup $DRUSH"
 DRUSH="$HOME/drush/drush"
 
@@ -36,17 +37,17 @@ chmod 777 files
 
 echo "Renaming sites/all/modules dir to sites/all/not-modules."
 # sudo mv ../all/modules/ ../all/not-modules
-mv ../all/modules/ ../all/not-modules
+mv $DRUPAL/sites/all/modules/ $DRUPAL/sites/all/not-modules
 echo
 
 echo "Switch to the drupal7 branch."
 #sudo su gituser -c "git checkout drupal7"
-path="$(basename $(dirname $(dirname $(dirname $PWD))))";
+#path="$(basename $(dirname $DRUPAL))";
 echo "Dir sites to tmp"
-mv ../../../sites /tmp/ 
+mv $DRUPAL/sites /tmp/ 
 
 echo "Remove drupal 6"
-cd  ../../../../ 
+cd   $HOME 
 chomd 777 $path/ -R
 rm $path/* -Rf
 echo
