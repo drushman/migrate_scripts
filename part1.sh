@@ -27,10 +27,10 @@ echo "Switch to the drupal7 branch."
 #sudo su gituser -c "git checkout drupal7"
 path="$(basename $(dirname $(dirname $(dirname $PWD))))";
 echo "Dir sites to tmp"
-mv ../../../sites /tmp/ -v
+mv ../../sites /tmp/ -v
 
 echo "Remove drupal 6"
-cd  ../../../../ -v
+cd  ../../../ -v
 rm $path/* -Rvf
 echo
 
