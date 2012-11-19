@@ -26,9 +26,9 @@ echo "Set the default theme to garland."
 $DRUSH vset theme_default garland
 echo
 
-echo "Use sites/default/settings-d7.php for d7 settings.php."
+#echo "Use sites/default/settings-d7.php for d7 settings.php."
 # sudo cp settings-d7.php settings.php
-cp settings-d7.php settings.php
+#cp settings-d7.php settings.php
 echo
 
 echo "Files directory must be 777."
@@ -38,9 +38,6 @@ echo "Renaming sites/all/modules dir to sites/all/not-modules."
 # sudo mv ../all/modules/ ../all/not-modules
 mv ../all/modules/ ../all/not-modules
 echo
-
-
-
 
 echo "Switch to the drupal7 branch."
 #sudo su gituser -c "git checkout drupal7"
@@ -67,10 +64,6 @@ mv /tmp/sites $path/
 
 echo "Go to dir current script"
 cd $path/sites/all/migrate_scripts
-
-
-
-
 echo
 
 
@@ -84,14 +77,13 @@ echo "Running update.php with verbose debug information printed."
 $DRUSH updb -vy
 echo
 
-echo "Update image style"
-$DRUSH scr migrate.php
-echo 
-
-
 echo "Enable standard profile"
 $DRUSH pm-enable standard
 echo
+
+echo "Update image style"
+$DRUSH scr migrate.php
+echo 
 
 echo "Core database tables have been migrated."
 echo
