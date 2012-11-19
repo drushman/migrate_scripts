@@ -23,6 +23,22 @@ echo "Set the default theme to garland."
 drush vset theme_default garland
 echo
 
+echo "Use sites/default/settings-d7.php for d7 settings.php."
+# sudo cp settings-d7.php settings.php
+cp settings-d7.php settings.php
+echo
+
+echo "Files directory must be 777."
+chmod 777 files
+
+echo "Renaming sites/all/modules dir to sites/all/not-modules."
+# sudo mv ../all/modules/ ../all/not-modules
+mv ../all/modules/ ../all/not-modules
+echo
+
+
+
+
 echo "Switch to the drupal7 branch."
 #sudo su gituser -c "git checkout drupal7"
 path="$(basename $(dirname $(dirname $(dirname $PWD))))";
@@ -37,9 +53,10 @@ echo
 echo "dowload drupal 7"
 wget http://ftp.drupal.org/files/projects/drupal-7.17.tar.gz 
 tar xvf drupal-7.17.tar.gz
-cp drupal-7.17/* $path/ -rvf
+cp drupal-7.17/* $path/ -rf
+chmod 777 $path/ -R
 echo "Remove sites"	
-rm $path/sites/* -Rvf
+rm $path/sites/* -Rf
 mv /tmp/sites $path/
 
 echo "Go to dir current script"
@@ -50,18 +67,6 @@ cd $path/sites/all/migrate_scripts
 
 echo
 
-echo "Use sites/default/settings-d7.php for d7 settings.php."
-# sudo cp settings-d7.php settings.php
-cp settings-d7.php settings.php
-echo
-
-echo "Files directory must be 777."
-chmod 777 files
-
-echo "Renaming sites/all/modules dir to sites/all/not-modules."
-# sudo mv ../all/modules/ ../all/not-modules
-mv ../all/modules/ ../all/not-modules
-echo
 
 echo "No contributed modules are accessible by drupal at this point."
 echo
