@@ -1,5 +1,0 @@
-block
-filter
-node
-system
-user

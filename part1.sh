@@ -4,6 +4,14 @@ PATH="duy.v3k.net"
 echo "setup $DRUSH"
 DRUSH="$HOME/drush/drush"
 
+echo $DRUPAL
+echo $DRUSH
+#$DRUSH/sites/all/migrate_scripts/part2.sh
+pwd
+$DRUSH vset --always-set site_offline 1
+exit
+
+
 echo "Begin Part 1 - Update core database tables."
 echo
 
@@ -33,7 +41,7 @@ echo
 echo
 
 echo "Files directory must be 777."
-chmod 777 files
+chmod 777 $DRUPAL/sites/default/files
 
 echo "Renaming sites/all/modules dir to sites/all/not-modules."
 # sudo mv ../all/modules/ ../all/not-modules
@@ -50,16 +58,16 @@ echo "$PATH"
 #exit;
 echo "Remove drupal 6"
 echo "$HOME" 
-cd $HOME 
+cd $HOME ;
 pwd
-chmod 777 $DRUPAL/ -R
-rm $DRUPAL/* -Rf
+chmod 777 $DRUPAL/ -R;
+rm "$DRUPAL/* -Rf"
 echo
 
 echo "dowload drupal 7"
-wget http://ftp.drupal.org/files/projects/drupal-7.17.tar.gz 
-tar xvf drupal-7.17.tar.gz
-cp drupal-7.17/* $DRUPAL/ -rf
+wget http://ftp.drupal.org/files/projects/drupal-7.17.tar.gz ;
+tar xvf drupal-7.17.tar.gz;
+cp drupal-7.17/* $DRUPAL/ -rf;
 chmod 777 $DRUPAL/ -R
 echo "Remove sites"	
 rm $DUPAL/sites -Rf
