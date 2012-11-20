@@ -11,8 +11,7 @@ echo "Dowload modules "
 $DRUSH -y dl acl content_access admin_menu content \
 content_taxonomy content_taxonomy_autocomplete \
 content_taxonomy_options link nodereference \
-optionwidgets text kt_hcam_cancel_notify hcamtv_playlist\
-kt_hcam_fbstream hcamtv_slideshow_email kt_hcam_slideshow_notify calendar \
+optionwidgets text calendar \
 calendar_ical jcalendar date date_api date_popup date_timezone pathologic \
 mimemail simplenews nodequeue blocks404 backup_migrate gravatar \
 imce menu_attributes pathauto mollom scheduler search_config \
@@ -32,9 +31,20 @@ imce menu_attributes pathauto mollom scheduler search_config \
 taxonomy_title token transliteration service_links general_services \
 googleanalytics ckeditor jquery_update views views_ui webform
 
+
+echo "Get custom module from git"
+cd $DRUPAL/sites/all/modules
+git clone https://duynguyen@bitbucket.org/duynguyen/hcam.git
+$DRUSH -y en kt_hcam_cancel_notify hcamtv_playlist kt_hcam_fbstream hcamtv_slideshow_email kt_hcam_slideshow_notify
+echo
+
+
 echo "Update contributed modules"
 $DRUSH updb -y
 echo
+
+
+
 
 $DRUSH vset --always-set site_offline 0
 
