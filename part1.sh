@@ -1,7 +1,5 @@
 #! /bin/bash
 DRUPAL="$HOME/duy.v3k.net"
-PATH="duy.v3k.net"
-echo "setup $DRUSH"
 DRUSH="$HOME/drush/drush"
 
 echo $DRUPAL

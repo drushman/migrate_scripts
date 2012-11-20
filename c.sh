@@ -1,13 +1,10 @@
 
-DRUPAL="$HOME/duy.v3k.net" 
-PATH="duy.v3k.net" 
-echo "setup $DRUSH" 
-DRUSH="$HOME/drush/drush"
+DRUPAL=$HOME"/duy.v3k.net"
+DRUSH=$HOME"/drush/drush"
+cat part1.sh
 
 echo $DRUPAL 
 echo $DRUSH
-#$DRUSH/sites/all/migrate_scripts/part2.sh
-pwd
 $DRUSH vset --always-set site_offline 1
 
 
@@ -16,7 +13,7 @@ exit
 
 
 echo "Switch to the drupal7 branch."
-#sudo su gituser -c "git checkout drupal7"
+sudo su gituser -c "git checkout drupal7"
 path="$(basename $(dirname $(dirname $(dirname $PWD))))";
 echo "Dir sites to tmp"
 cd ../../sites 
