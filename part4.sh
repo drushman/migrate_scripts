@@ -1,25 +1,33 @@
 #! /bin/bash
 DRUSH="$HOME/drush/drush"
-
-echo "Download drupal 7 modules"
-
-#echo "Moving sites/all/modules back to sites/all/migrate."
-# sudo ../all/modules ../all/migrate
-$DRUSH -y dl acl content_access admin_menu content content_taxonomy content_taxonomy_autocomplete content_taxonomy_options link nodereference optionwidgets text kt_hcam_cancel_notify hcamtv_playlist kt_hcam_fbstream hcamtv_slideshow_email kt_hcam_slideshow_notify calendar calendar_ical jcalendar date date_api date_popup date_timezone pathologic mimemail simplenews nodequeue blocks404 backup_migrate gravatar imce menu_attributes pathauto mollom scheduler search_config taxonomy_title token transliteration service_links general_services googleanalytics ckeditor jquery_update views views_ui webform hcamtv
-
-
-echo "Enable modules"
-$DRUSH -y en acl content_access admin_menu content content_taxonomy content_taxonomy_autocomplete content_taxonomy_options link nodereference optionwidgets text kt_hcam_cancel_notify hcamtv_playlist kt_hcam_fbstream hcamtv_slideshow_email kt_hcam_slideshow_notify calendar calendar_ical jcalendar date date_api date_popup date_timezone pathologic mimemail simplenews nodequeue blocks404 backup_migrate gravatar imce menu_attributes pathauto mollom scheduler search_config taxonomy_title token transliteration service_links general_services googleanalytics ckeditor jquery_update views views_ui webform hcamtv
-
-#echo "Moving sites/all/not-modules back to sites/all/modules"
-# sudo mv ../all/not-modules ../all/modules
-#mv ../all/not-modules ../all/modules
+echo "Migrate content fields from d6 cck to d6 fields."
+echo "You could also visit /admin/structure/content_migrate"
+#$DRUSH -y content-migrate-fields
 echo
 
-echo "Clearing all drupal cache."
 echo
-$DRUSH cc all
+$DRUSH conent-migrate-field-structure field_image
+$DRUSH content-migrate-field-data field_image
+echo
+$DRUSH content-migrate-field-structure field_video
+$DRUSH content-migrate-field-data field_video
+echo
+$DRUSH content-migrate-field-structure field_category
+$DRUSH content-migrate-field-data field_category
+echo
+$DRUSH content-migrate-field-structure field_date
+$DRUSH content-migrate-field-data field_date
+echo
+$DRUSH content-migrate-field-structure field_video_link
+$DRUSH content-migrate-field-data field_video_link
+echo
+$DRUSH content-migrate-field-structure field_photo
+$DRUSH content-migrate-field-data field_photo
 echo
 
-echo "[Part 4 Done]"
+echo "Done migrating fields."
+echo
+echo "All content fields have been updated."
+echo
+echo "[Part 3 Done]"
 echo
