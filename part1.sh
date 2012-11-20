@@ -71,8 +71,8 @@ echo "restores sites old drupal"
 chmod 777 /tmp/ms_backup/sites -R
 mv /tmp/ms_backup/sites $DRUPAL/
 
-echo "Go to dir current script"
-#cd /sites/all/migrate_scripts
+echo "cd to default"
+cd $DRUPAL/sites/all/default
 echo
 
 
