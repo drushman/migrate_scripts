@@ -34,31 +34,23 @@ echo
 #cp settings-d7.php settings.php
 echo
 
-echo "Files directory must be 777."
-chmod 777 $DRUPAL/sites/default/files
 
 echo "Renaming sites/all/modules dir to sites/all/not-modules."
 # sudo mv ../all/modules/ ../all/not-modules
 mv $DRUPAL/sites/all/modules/ $DRUPAL/sites/all/not-modules
 echo
 
-echo "Switch to the drupal7 branch."
-#sudo su gituser -c "git checkout drupal7"
-#path="$(basename $(dirname $DRUPAL))";
+echo "Update core code."
 echo "Move sites to temp"
 rm /tmp/ms_backup -rf
 mkdir /tmp/ms_backup
 chmod 777 /tmp/ms_backup -R
 chmod 777 $DRUPAL/ -R;
 mv $DRUPAL/sites /tmp/ms_backup/
-echo ""
+echo
 
-#exit;
 echo "Remove drupal 6"
-echo "$HOME" 
 cd $HOME ;
-pwd
-chmod 777 $DRUPAL/ -R;
 rm $DRUPAL/* -Rf
 echo
 
@@ -72,10 +64,10 @@ rm drupal-7.17.tar.gz drupal-7.17 -rf
 
 echo "change permission to 777"
 chmod 777 $DRUPAL/ -R
-echo "Remove sites"	
+echo "Remove sites new drupal"	
 rm $DRUPAL/sites -Rf
 
-echo "restores sites"
+echo "restores sites old drupal"
 chmod 777 /tmp/ms_backup/sites -R
 mv /tmp/ms_backup/sites $DRUPAL/
 
