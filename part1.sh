@@ -66,10 +66,16 @@ echo "dowload drupal 7"
 wget http://ftp.drupal.org/files/projects/drupal-7.17.tar.gz ;
 tar xvf drupal-7.17.tar.gz;
 cp drupal-7.17/* $DRUPAL/ -rf;
+
+echo "remove drupal 7 downloaded"
+rm drupal-7.17.tar.gz drupal-7.17 -rf
+
+echo "change permission to 777"
 chmod 777 $DRUPAL/ -R
 echo "Remove sites"	
-rm $DUPAL/sites -Rf
-ls -la $DRUPAL
+rm $DRUPAL/sites -Rf
+
+echo "restores sites"
 chmod 777 /tmp/sites -R
 mv /tmp/sites $DRUPAL/
 
@@ -93,7 +99,7 @@ $DRUSH pm-enable standard
 echo
 
 echo "Update image style"
-$DRUSH scr migrate.php
+$DRUSH scr $DRUPAL/sites/all/migrate_scripts/migrate.php
 echo 
 
 echo "Core database tables have been migrated."
