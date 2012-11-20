@@ -1,6 +1,8 @@
 #! /bin/bash
 DRUSH="$HOME/drush/drush"
+DRUPAL="$HOME/duy.v3k.net"
 echo "This MUST be run while the active directory is /sites/default"
+cd $DRUPAL/sites/default
 echo
 
 
@@ -34,6 +36,20 @@ echo "Update contributed modules"
 $DRUSH updb -y
 echo
 
+$DRUSH vset --always-set site_offline 0
+
+echo "enable themes"
+mkdir $DRUPAL/sites/all/themes
+cd $DRUPAL/sites/all/themes
+git clone https://github.com/tuongduy/hcamtv
+$DRUSH -y en hcamtv
+$DRUSH vset theme_default hcamtv
+echo
+
+echo "Setting file system"
+mkdir $DRUPAL/sites/default/temp
+chmod 777 $DRUPAL/sites/default/temp -R
+chmod 777 $DRUPAL/sites/default/files -R
 
 
 echo "Login link:"
