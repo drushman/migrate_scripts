@@ -12,7 +12,7 @@ echo "Saving a db snapshot called site-db-d6.sql."
 echo
 
 echo "Change into sites/default directory."
-cd $DRUPAL/sites/all/default
+cd $DRUPAL/sites/default
 echo
 
 

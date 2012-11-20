@@ -72,7 +72,7 @@ chmod 777 /tmp/ms_backup/sites -R
 mv /tmp/ms_backup/sites $DRUPAL/
 
 echo "cd to default"
-cd $DRUPAL/sites/all/default
+cd $DRUPAL/sites/default
 echo
 
 
