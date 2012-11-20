@@ -45,9 +45,13 @@ echo
 echo "Switch to the drupal7 branch."
 #sudo su gituser -c "git checkout drupal7"
 #path="$(basename $(dirname $DRUPAL))";
-echo "Dir sites to tmp"
-mv $DRUPAL/sites /tmp/ 
-echo "$PATH"
+echo "Move sites to temp"
+rm /tmp/ms_backup -rf
+mkdir /tmp/ms_backup
+chmod 777 /tmp/ms_backup -R
+chmod 777 $DRUPAL/ -R;
+mv $DRUPAL/sites /tmp/ms_backup/
+echo ""
 
 #exit;
 echo "Remove drupal 6"
@@ -55,7 +59,7 @@ echo "$HOME"
 cd $HOME ;
 pwd
 chmod 777 $DRUPAL/ -R;
-rm "$DRUPAL/* -Rf"
+rm $DRUPAL/* -Rf
 echo
 
 echo "dowload drupal 7"
@@ -72,8 +76,8 @@ echo "Remove sites"
 rm $DRUPAL/sites -Rf
 
 echo "restores sites"
-chmod 777 /tmp/sites -R
-mv /tmp/sites $DRUPAL/
+chmod 777 /tmp/ms_backup/sites -R
+mv /tmp/ms_backup/sites $DRUPAL/
 
 echo "Go to dir current script"
 #cd /sites/all/migrate_scripts
