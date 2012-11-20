@@ -5,10 +5,6 @@ DRUSH="$HOME/drush/drush"
 echo $DRUPAL
 echo $DRUSH
 #$DRUSH/sites/all/migrate_scripts/part2.sh
-pwd
-$DRUSH vset --always-set site_offline 1
-exit
-
 
 echo "Begin Part 1 - Update core database tables."
 echo
