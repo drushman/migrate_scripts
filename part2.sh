@@ -12,7 +12,7 @@ $DRUSH dl cck references link content_taxonomy date ctools features admin_menu
 
 echo "Enable the required content modules located in sites/all/modules + features & admin menu."
 echo
-$DRUSH -y en content_migrate content_taxonomy content_taxonomy_migrate date link image node_reference ctools features admin_menu
+$DRUSH -y en content_migrate content_taxonomy content_taxonomy_migrate date link file image node_reference ctools features
 echo
 
 echo "Run database update on the content modules."

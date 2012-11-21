@@ -1,39 +1,36 @@
 #! /bin/bash
 DRUSH="$HOME/drush/drush"
 DRUPAL="$HOME/duy.v3k.net"
-echo "This MUST be run while the active directory is /sites/default"
-cd $DRUPAL/sites/default
-echo
 
+
+cd $DRUPAL/sites/all/modules
 
 echo "Dowload modules "
 
 $DRUSH -y dl acl content_access admin_menu content \
 content_taxonomy content_taxonomy_autocomplete \
-content_taxonomy_options link nodereference \
-optionwidgets text calendar \
-calendar_ical jcalendar date date_api date_popup date_timezone pathologic \
-mimemail simplenews nodequeue blocks404 backup_migrate gravatar \
+content_taxonomy_options link nodereference text calendar \
+calendar_ical jcalendar date pathologic \
+mimemail simplenews nodequeue backup_migrate gravatar \
 imce menu_attributes pathauto mollom scheduler search_config \
 taxonomy_title token transliteration service_links general_services \
 googleanalytics ckeditor jquery_update views views_ui webform
 echo
 
-echo "Dowload contribute "
-$DRUSH -y en acl content_access admin_menu content \
+echo "Enable contribute "
+$DRUSH -y en acl content_access content \
 content_taxonomy content_taxonomy_autocomplete \
-content_taxonomy_options link nodereference \
-optionwidgets text kt_hcam_cancel_notify hcamtv_playlist\
-kt_hcam_fbstream hcamtv_slideshow_email kt_hcam_slideshow_notify calendar \
+content_taxonomy_options link node_reference \
+text calendar \
 calendar_ical jcalendar date date_api date_popup date_timezone pathologic \
-mimemail simplenews nodequeue blocks404 backup_migrate gravatar \
+mimemail simplenews nodequeue  backup_migrate gravatar \
 imce menu_attributes pathauto mollom scheduler search_config \
 taxonomy_title token transliteration service_links general_services \
 googleanalytics ckeditor jquery_update views views_ui webform
 
 
 echo "Get custom module from git"
-cd $DRUPAL/sites/all/modules
+
 git clone https://duynguyen@bitbucket.org/duynguyen/hcam.git
 $DRUSH -y en kt_hcam_cancel_notify hcamtv_playlist kt_hcam_fbstream hcamtv_slideshow_email kt_hcam_slideshow_notify
 echo
@@ -49,8 +46,8 @@ echo
 $DRUSH vset --always-set site_offline 0
 
 echo "enable themes"
-mkdir $DRUPAL/sites/all/themes
-cd $DRUPAL/sites/all/themes
+mkdir $DRUPAL/sites/default/themes
+cd $DRUPAL/sites/default/themes
 git clone https://github.com/tuongduy/hcamtv
 $DRUSH -y en hcamtv
 $DRUSH vset theme_default hcamtv

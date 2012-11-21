@@ -55,12 +55,12 @@ rm $DRUPAL/* -Rf
 echo
 
 echo "dowload drupal 7"
-wget http://ftp.drupal.org/files/projects/drupal-7.17.tar.gz ;
-tar xvf drupal-7.17.tar.gz;
+
+wget http://ftp.drupal.org/files/projects/drupal-7.17.tar.gz -O- | tar xz;
 cp drupal-7.17/* $DRUPAL/ -rf;
 
 echo "remove drupal 7 downloaded"
-rm drupal-7.17.tar.gz drupal-7.17 -rf
+rm drupal-7.17 -rf
 
 echo "change permission to 777"
 chmod 777 $DRUPAL/ -R
@@ -87,7 +87,7 @@ $DRUSH updb -vy
 echo
 
 echo "Enable standard profile"
-$DRUSH pm-enable standard
+$DRUSH -y pm-enable standard
 echo
 
 echo "Update image style"

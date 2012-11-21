@@ -1,23 +1,13 @@
 #! /bin/bash
+DRUSH="$HOME/drush/drush"
+DRUPAL="$HOME/duy.v3k.net"
 
-echo "This MUST be run while the active directory is /sites/default"
+echo "Disable modules don't necesary"
+$DRUSH -y en php
 echo
 
+echo "Download and enable features"
+git clone https://github.com/tuongduy/features_hcam.git
 
-echo "Moving sites/all/not-modules back to sites/all/modules"
-# sudo mv ../all/not-modules ../all/modules
-mv ../all/d7-modules ../all/modules
-
-echo "Enable drupal 7 modules"
-cat ../all/list/enable.txt | xargs drush -y en
-echo
-
-echo "Update contributed modules"
-drush updb -y
-echo
-
-
-
-echo "Login link:"
-echo "$LOGIN"
+$DRUSH -y en features_hcam
 echo
