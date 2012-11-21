@@ -1,7 +1,7 @@
 #! /bin/bash
 source config.sh
 
-
+mkdir $DRUPAL/sites/all/modules
 cd $DRUPAL/sites/all/modules
 
 echo "Dowload modules "

@@ -11,6 +11,8 @@ cd $DRUPAL/sites/all/modules
 echo "Download and enable features"
 git clone https://github.com/tuongduy/features_hcam.git
 
+
+$DRUSH dl entity rules
 $DRUSH -y en features_hcam
 echo
 

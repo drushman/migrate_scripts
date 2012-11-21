@@ -45,7 +45,7 @@ rm /tmp/ms_backup -rf
 mkdir /tmp/ms_backup
 chmod 777 /tmp/ms_backup -R
 chmod 777 $DRUPAL/ -R;
-mv $DRUPAL/sites /tmp/ms_backup/
+mv $DRUPAL/sites /tmp/ms_backup/ 
 echo
 
 echo "Remove drupal 6"
@@ -64,7 +64,7 @@ rm drupal-7.17 -rf
 echo "change permission to 777"
 chmod 777 $DRUPAL/ -R
 echo "Remove sites new drupal"	
-rm $DRUPAL/sites -Rf
+rm $DRUPAL/sites -rvf
 
 echo "restores sites old drupal"
 chmod 777 /tmp/ms_backup/sites -R
