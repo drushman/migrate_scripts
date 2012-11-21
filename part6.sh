@@ -16,6 +16,9 @@ $DRUSH dl entity rules
 $DRUSH -y en features_hcam
 echo
 
+echo "Features revert"
+$DRUSH fe features_hcam
+
 
 echo "Edit node 71"
 $DRUSH scr $DRUPAL/sites/all/migrate_scripts/edit_node_71.php
