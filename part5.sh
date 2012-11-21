@@ -7,14 +7,13 @@ cd $DRUPAL/sites/all/modules
 
 echo "Dowload modules "
 
-$DRUSH -y dl acl content_access admin_menu content \
-content_taxonomy content_taxonomy_autocomplete \
-content_taxonomy_options link nodereference text calendar \
-calendar_ical jcalendar date pathologic \
+$DRUSH -y dl acl content_access admin_menu \
+content_taxonomy link reference text calendar \
+date pathologic \
 mimemail simplenews nodequeue backup_migrate gravatar \
 imce menu_attributes pathauto mollom scheduler search_config \
 taxonomy_title token transliteration service_links general_services \
-googleanalytics ckeditor jquery_update views views_ui webform
+google_analytics ckeditor jquery_update views views_ui webform
 echo
 
 echo "Enable contribute "
