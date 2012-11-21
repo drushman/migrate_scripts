@@ -32,7 +32,7 @@ echo
 
 echo "Convert Image field description to Alt on image field"
 $DRUSH scr $DRUPAL/sites/all/migrate_scripts/image_descriptions.php
-
+echo
 
 echo "All content fields have been updated."
 echo

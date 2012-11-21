@@ -30,7 +30,7 @@ googleanalytics ckeditor jquery_update views views_ui webform
 echo "Get custom module from git"
 
 git clone https://duynguyen@bitbucket.org/duynguyen/hcam.git
-$DRUSH -y en kt_hcam_cancel_notify hcamtv_playlist kt_hcam_fbstream hcamtv_slideshow_email kt_hcam_slideshow_notify
+$DRUSH -y en hcamtv_playlist kt_hcam_fbstream
 echo
 
 
