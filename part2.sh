@@ -1,5 +1,7 @@
 #! /bin/bash
-DRUSH="$HOME/drush/drush"
+source config.sh
+
+
 echo "Renaming sites/all/migrate to sites/all/modules."
 echo "sites/all/modules contains symbolic links to sites/all/not-modules."
 echo "The only modules in the current sites/all/modules are related to updating content fields."
