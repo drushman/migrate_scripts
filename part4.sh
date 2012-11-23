@@ -37,7 +37,7 @@ $DRUSH content-migrate-field-data field_photo
 echo "Done"
 
 echo "Remove field_category"
-$DRUSH -y field-delete field_category -1 
+$DRUSH -y field-delete field_category --bundle=all
 
 echo "Done migrating fields."
 echo
