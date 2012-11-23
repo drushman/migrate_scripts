@@ -17,7 +17,10 @@ $DRUSH -y en features_hcam
 echo
 
 echo "Features revert"
-$DRUSH fr features_hcam
+$DRUSH fr features_hcam -y
+
+echo "Remove file category"
+drush field-delete field_category -1
 
 
 echo "Edit node 71"

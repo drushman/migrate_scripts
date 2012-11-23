@@ -42,7 +42,7 @@ mv $DRUPAL/sites/default/themes $DRUPAL/sites/default/old-themes
 echo
 
 echo "Update core code."
-echo "Move sites to temp"
+echo "Lock sites"
 #rm /tmp/ms_backup -rf
 #mkdir /tmp/ms_backup
 #chmod 777 /tmp/ms_backup -R
@@ -58,6 +58,7 @@ echo
 echo "dowload drupal 7"
 
 wget http://ftp.drupal.org/files/projects/drupal-7.17.tar.gz -O- | tar xz;
+chmod 777 drupal-7.17/ -R
 rm drupal-7.17/sites -rvf
 cp drupal-7.17/* $DRUPAL/ -rf;
 
