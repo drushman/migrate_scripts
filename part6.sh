@@ -5,8 +5,9 @@ echo "Disable modules don't necesary"
 $DRUSH -y en php admin_menu_toolbar 
 $DRUSH -y ven taxonomy_term
 $DRUSH -y dis shortcut toolbar overlay field_ui rdf syslog update dblog
-echo
+echo "Done"
 
+echo "Go to sites/all/modules"
 cd $DRUPAL/sites/all/modules
 echo "Download and enable features"
 git clone https://github.com/tuongduy/features_hcam.git
@@ -19,8 +20,6 @@ echo
 echo "Features revert"
 $DRUSH fr features_hcam -y
 
-echo "Remove file category"
-drush field-delete field_category -1
 
 
 echo "Edit node 71"

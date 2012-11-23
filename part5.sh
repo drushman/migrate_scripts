@@ -4,7 +4,7 @@ source config.sh
 mkdir $DRUPAL/sites/all/modules
 cd $DRUPAL/sites/all/modules
 
-echo "Dowload modules "
+echo "Dowload modules"
 
 $DRUSH -y dl acl content_access admin_menu \
 content_taxonomy link reference text calendar \
@@ -13,7 +13,7 @@ mimemail simplenews nodequeue backup_migrate gravatar \
 imce menu_attributes pathauto mollom scheduler search_config \
 taxonomy_title token transliteration service_links general_services \
 google_analytics ckeditor jquery_update views views_ui webform
-echo
+echo "Done"
 
 echo "Enable contribute "
 $DRUSH -y en acl content_access content \
@@ -25,25 +25,26 @@ mimemail simplenews nodequeue  backup_migrate gravatar \
 imce menu_attributes pathauto mollom scheduler search_config \
 taxonomy_title token transliteration service_links general_services \
 googleanalytics ckeditor jquery_update views views_ui webform
-
+echo "Done"
 
 echo "Get custom module from git"
-
 git clone https://duynguyen@bitbucket.org/duynguyen/hcam.git
 $DRUSH -y en hcamtv_playlist kt_hcam_fbstream
-echo
+echo "Done"
 
 
 echo "Update contributed modules"
 $DRUSH updb -y
-echo
+echo "Done"
 
 
 
-
+echo "Disable mainternain"
 $DRUSH vset --always-set site_offline 0
+echo "Done"
 
-echo "enable themes"
+
+echo "Enable themes"
 mkdir $DRUPAL/sites/default/themes
 cd $DRUPAL/sites/default/themes
 git clone https://github.com/tuongduy/hcamtv

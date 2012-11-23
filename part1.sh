@@ -38,60 +38,41 @@ echo
 
 echo "Update core code."
 echo "Lock sites"
-#rm /tmp/ms_backup -rf
-#mkdir /tmp/ms_backup
-#chmod 777 /tmp/ms_backup -R
-chmod 0440 $DRUPAL/sites -R;
-#mv $DRUPAL/sites /tmp/ms_backup/ 
 echo
 
-echo "Remove drupal 6"
+echo "Move $DRUPAL to $DRUPAL-old"
 cd $PARRENT_DIR ;
-mv $DRUPAL "$DRUPAL'_old'"
-exit;
-echo
+mv $DRUPAL $DRUPAL-old
+echo "Move done"
 
-echo "dowload drupal 7"
-
+echo "Dowload drupal 7"
 wget http://ftp.drupal.org/files/projects/drupal-7.17.tar.gz -O- | tar xz;
 chmod 777 drupal-7.17/ -R
-rm drupal-7.17/sites -rvf
-cp drupal-7.17/* $DRUPAL/ -rf;
+mv drupal-7.17 $DRUPAL
+mv $DRUPAL/sites $DRUPAL/sites_empty
+echo "Download done"
 
-echo "remove drupal 7 downloaded"
-rm drupal-7.17 -rf
-
-echo "change permission to 777"
-chmod 777 $DRUPAL/ -R
-#echo "Remove sites new drupal"	
-#rm $DRUPAL/sites -rvf
-
-#echo "restores sites old drupal"
-#chmod 777 /tmp/ms_backup/sites -R
-#mv /tmp/ms_backup/sites $DRUPAL/
+echo "Move sites from old sites to new sites"
+mv $DRUPAL-old/sites $DRUPAL/
+echo "Move done"
 
 echo "cd to default"
 cd $DRUPAL/sites/default
-echo
-
-
-echo "No contributed modules are accessible by drupal at this point."
-echo
-
-echo "This next command will conclude Part 1."
-echo
+echo "Now systme run at"
+pwd
 
 echo "Running update.php with verbose debug information printed."
 $DRUSH updb -vy
-echo
+echo "Update done db to drupal 7"
 
 echo "Enable standard profile"
 $DRUSH -y pm-enable standard
-echo
+echo "Enable done"
+
 
 echo "Update image style"
 $DRUSH scr $DRUPAL/sites/all/migrate_scripts/migrate.php
-echo 
+echo "Update image complete"
 
 echo "Core database tables have been migrated."
 echo
