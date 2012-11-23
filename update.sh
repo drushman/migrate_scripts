@@ -25,8 +25,9 @@ echo "Saving a db snapshot called site-db-d6.sql."
 #$DRUSH sql-dump --skip-tables-key=common > site-db-d6.sql
 echo
 
-echo "Change into sites/default directory."
-cd $DRUPAL/sites/default
+echo "Change into sites/all/migrate_scripts default directory."
+cd $DRUPAL/sites/all/migrate_scripts
+pwd
 echo
 
 
@@ -49,6 +50,11 @@ echo "* * * * Beginning Part 2. * * * *"
 echo
 
 echo "Running part2.sh"
+
+echo "Change into sites/all/migrate_scripts default directory."
+cd $DRUPAL/sites/all/migrate_scripts
+pwd
+echo
 echo
 $DRUPAL/sites/all/migrate_scripts/part2.sh
 echo
@@ -63,6 +69,10 @@ echo "* * * * Beginning Part 3. * * * *"
 echo
 
 echo "Running part3.sh"
+echo "Change into sites/all/migrate_scripts default directory."
+cd $DRUPAL/sites/all/migrate_scripts
+pwd
+echo
 echo
 $DRUPAL/sites/all/migrate_scripts/part3.sh
 echo
@@ -78,6 +88,10 @@ echo "* * * * Beginning Part 4. * * * *"
 echo
 
 echo "Running part4.sh"
+echo "Change into sites/all/migrate_scripts default directory."
+cd $DRUPAL/sites/all/migrate_scripts
+pwd
+echo
 echo
 $DRUPAL/sites/all/migrate_scripts/part4.sh
 echo
@@ -91,6 +105,10 @@ echo "* * * * Beginning Part 5. * * * *"
 echo
 
 echo "Running part5.sh"
+echo "Change into sites/all/migrate_scripts default directory."
+cd $DRUPAL/sites/all/migrate_scripts
+pwd
+echo
 echo
 $DRUPAL/sites/all/migrate_scripts/part5.sh
 echo
@@ -106,6 +124,10 @@ echo "* * * * Beginning Part 6. * * * *"
 echo
 
 echo "Running part6.sh"
+echo "Change into sites/all/migrate_scripts default directory."
+cd $DRUPAL/sites/all/migrate_scripts
+pwd
+echo
 echo
 $DRUPAL/sites/all/migrate_scripts/part6.sh
 echo

@@ -1,8 +1,6 @@
 #! /bin/bash
 source config.sh
 
-echo $DRUPAL
-echo $DRUSH
 #$DRUSH/sites/all/migrate_scripts/part2.sh
 
 echo "Begin Part 1 - Update core database tables."
