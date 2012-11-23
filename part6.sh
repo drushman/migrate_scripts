@@ -36,5 +36,10 @@ $DRUSH cc all -v
 
 echo "Disable Logging and error"
 $DRUSH vset error_level 1
-
+echo
+echo "Download ckeditor"
+cd $DRUPAL/sites/all/modules/ckeditor
+mv ckeditor ckeditor_1
+wget http://download.cksource.com/CKEditor/CKEditor/CKEditor%203.6.5/ckeditor_3.6.5.tar.gz -O- | tar xz
+echo done
 
