@@ -52,7 +52,7 @@ echo
 
 echo "Remove drupal 6"
 cd $HOME ;
-rm $DRUPAL/* -Rf
+rm $DRUPAL/* -Rfv
 echo
 
 echo "dowload drupal 7"
