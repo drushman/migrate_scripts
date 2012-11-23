@@ -31,21 +31,23 @@ echo
 #echo "Use sites/default/settings-d7.php for d7 settings.php."
 # sudo cp settings-d7.php settings.php
 #cp settings-d7.php settings.php
-echo
+#echo
 
 
-echo "Renaming sites/all/modules dir to sites/all/not-modules."
+echo "Renaming modules dir to old-modules."
 # sudo mv ../all/modules/ ../all/not-modules
-mv $DRUPAL/sites/all/modules/ $DRUPAL/sites/all/not-modules
+mv $DRUPAL/sites/all/modules/ $DRUPAL/sites/all/old-modules
+mv $DRUPAL/sites/default/modules $DRUPAL/sites/old-modules
+mv $DRUPAL/sites/default/themes $DRUPAL/sites/default/old-themes
 echo
 
 echo "Update core code."
 echo "Move sites to temp"
-rm /tmp/ms_backup -rf
-mkdir /tmp/ms_backup
-chmod 777 /tmp/ms_backup -R
-chmod 777 $DRUPAL/ -R;
-mv $DRUPAL/sites /tmp/ms_backup/ 
+#rm /tmp/ms_backup -rf
+#mkdir /tmp/ms_backup
+#chmod 777 /tmp/ms_backup -R
+chmod 0440 $DRUPAL/sites -R;
+#mv $DRUPAL/sites /tmp/ms_backup/ 
 echo
 
 echo "Remove drupal 6"
@@ -56,6 +58,7 @@ echo
 echo "dowload drupal 7"
 
 wget http://ftp.drupal.org/files/projects/drupal-7.17.tar.gz -O- | tar xz;
+rm drupal-7.17/sites -rvf
 cp drupal-7.17/* $DRUPAL/ -rf;
 
 echo "remove drupal 7 downloaded"
@@ -63,12 +66,12 @@ rm drupal-7.17 -rf
 
 echo "change permission to 777"
 chmod 777 $DRUPAL/ -R
-echo "Remove sites new drupal"	
-rm $DRUPAL/sites -rvf
+#echo "Remove sites new drupal"	
+#rm $DRUPAL/sites -rvf
 
-echo "restores sites old drupal"
-chmod 777 /tmp/ms_backup/sites -R
-mv /tmp/ms_backup/sites $DRUPAL/
+#echo "restores sites old drupal"
+#chmod 777 /tmp/ms_backup/sites -R
+#mv /tmp/ms_backup/sites $DRUPAL/
 
 echo "cd to default"
 cd $DRUPAL/sites/default
