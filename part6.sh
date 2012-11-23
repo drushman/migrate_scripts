@@ -13,8 +13,15 @@ echo "Download and enable features"
 git clone https://github.com/tuongduy/features_hcam.git
 
 
+echo "Download modules vc_footer_block"
+git clone https://github.com/tuongduy/vc_footer_block.git
+
+
 $DRUSH dl entity rules
 $DRUSH -y en features_hcam
+echo
+
+$DRUSH -y en vc_footer_block
 echo
 
 echo "Features revert"
@@ -26,3 +33,6 @@ echo "Edit node 71"
 $DRUSH scr $DRUPAL/sites/all/migrate_scripts/edit_node_71.php
 echo "clear cache"
 $DRUSH cc all -v
+
+
+
