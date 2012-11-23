@@ -1,8 +1,10 @@
 #! /bin/bash
 
-# Prep work
-DRUPAL="$HOME/duy.v3k.net"
-DRUSH="$HOME/drush/drush"
+source config.sh
+
+cat $DRUPAL/sites/all/migrate_scripts/part1.sh
+exit
+
 TODAY=`date "+%Y%m%d"`-`date +%H%M%S`
 echo "FYI Today is $TODAY"
 echo
