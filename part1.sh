@@ -28,11 +28,6 @@ echo "Set the default theme to garland."
 $DRUSH vset theme_default garland
 echo
 
-#echo "Use sites/default/settings-d7.php for d7 settings.php."
-# sudo cp settings-d7.php settings.php
-#cp settings-d7.php settings.php
-#echo
-
 
 echo "Renaming modules dir to old-modules."
 # sudo mv ../all/modules/ ../all/not-modules
@@ -51,8 +46,9 @@ chmod 0440 $DRUPAL/sites -R;
 echo
 
 echo "Remove drupal 6"
-cd $HOME ;
-rm $DRUPAL/* -Rfv
+cd $PARRENT_DIR ;
+mv $DRUPAL "$DRUPAL'_old'"
+exit;
 echo
 
 echo "dowload drupal 7"

@@ -2,6 +2,10 @@
 
 source config.sh
 
+if [ ! -d $DRUPAL ]; then
+  echo "drupal installtion directory not found"
+  exit;
+fi
 
 TODAY=`date "+%Y%m%d"`-`date +%H%M%S`
 echo "FYI Today is $TODAY"

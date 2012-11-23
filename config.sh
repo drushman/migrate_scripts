@@ -1,3 +1,4 @@
 DRUSH=~/drush/drush
-DRUPAL=~/7.hcamtv.com
-
+DRUPAL=~/duy.v3k.net
+SITENAME=duy.vk3.net
+PARRENT_DIR=$HOME
