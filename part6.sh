@@ -34,5 +34,7 @@ $DRUSH scr $DRUPAL/sites/all/migrate_scripts/edit_node_71.php
 echo "clear cache"
 $DRUSH cc all -v
 
+echo "Disable Logging and error"
+$DRUSH vset error_level 1
 
 
