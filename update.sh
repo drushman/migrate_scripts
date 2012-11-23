@@ -3,7 +3,17 @@
 source config.sh
 
 if [ ! -d $DRUPAL ]; then
-  echo "drupal installtion directory not found"
+  echo "Drupal installtion directory not found in your config"
+  exit;
+fi
+
+if [ ! -d $PARRENT_DIR ]; then
+  echo "Directory parrent of drupal site not found in your config"
+  exit;
+fi
+
+if [ ! -f $DRUSH ]; then
+  echo "Drush don't installed"
   exit;
 fi
 
