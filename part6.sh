@@ -17,7 +17,7 @@ $DRUSH -y en features_hcam
 echo
 
 echo "Features revert"
-$DRUSH fe features_hcam
+$DRUSH fr features_hcam
 
 
 echo "Edit node 71"
